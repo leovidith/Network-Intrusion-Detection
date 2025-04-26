@@ -1,24 +1,34 @@
+# Intrusion Detection System using Machine Learning
+
 ## Overview
-The goal of this project is to build a machine learning model that classifies network traffic with perfect accuracy using the CICIDS2017 dataset. This dataset contains network flow data with features like flow duration, packet lengths, and flag counts, and the target column indicates whether a flow is benign or malicious. The model uses a Deep Neural Network (DNN) to achieve unmatched performance, evaluated using Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared metrics.
+This project implements a Machine Learning-based Intrusion Detection System using a Kaggle-provided network intrusion dataset.  
+The objective is to classify network traffic accurately as benign or malicious.
 
-## Results
-The model achieved **perfect accuracy**, with an R-squared value of **1.0**, indicating that it explains 100% of the variance in the target variable. The error metrics are near zero, confirming that the model classifies every flow correctly.
+- **Dataset**: [Network Intrusion Dataset](https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset)
+- **Preprocessing**:
+  - Handled missing and infinite values.
+  - Applied SMOTE for label balancing.
+  - Standardized features using `StandardScaler`.
+  - Encoded target labels using `LabelEncoder`.
 
-### Metrics and Performance:
-- **Mean Absolute Error (MAE):** 8.160362502113839e-17
-- **Mean Squared Error (MSE):** 1.468519158250575e-32
-- **R-squared (R²):** 1.0 (Perfect fit!)
+## Significant Feature Insight
+- **Smoking** was identified as the most critical feature, contributing approximately **0**, indicating it has negligible predictive power.
 
-## Features
-- **Traffic Attributes:** Flow duration, packet lengths, header lengths, and flag counts.
-- **Statistical Measures:** Mean, standard deviation, and variance of packets.
-- **Flags and Ratios:** PSH, URG, SYN flags, and other indicators of packet and flow characteristics.
-- **Target Column:** `Label`, indicating whether a network flow is benign or malicious.
+## Machine Learning Models Evaluated
+- Logistic Regression
+- Decision Tree Classifier
+- Random Forest Classifier
+- XGBoost Classifier
 
-## Sprints
-1. **Data Preprocessing:** Handled missing and infinite values, standardized the features using `StandardScaler`, and performed feature selection using `SelectKBest` with the ANOVA F-test.
-2. **Model Development:** Built a Deep Neural Network (DNN) with 3 layers, trained using early stopping to prevent overfitting.
-3. **Evaluation and Performance:** The model was evaluated using MAE, MSE, and R-squared metrics, achieving perfect classification.
+## Results Summary
+
+| Model                     | Accuracy | Precision | Recall | F1-Score |
+|----------------------------|:--------:|:---------:|:------:|:--------:|
+| Logistic Regression        | 1.00     | 1.00      | 1.00   | 1.00     |
+| Decision Tree Classifier   | 1.00     | 1.00      | 1.00   | 1.00     |
+| Random Forest Classifier   | 1.00     | 1.00      | 1.00   | 1.00     |
+| XGBoost Classifier         | 1.00     | 1.00      | 1.00   | 1.00     |
 
 ## Conclusion
-The "Perfect Model" was successfully achieved through careful preprocessing, feature selection, and neural network design. With an R-squared value of 1.0 and near-zero error metrics, this model sets a new standard in intrusion detection performance, making it a powerful tool for future network security advancements.
+The Machine Learning models achieved **perfect classification performance** across all evaluation metrics.  
+Further exploration with deep learning models is unnecessary unless deploying to a dynamic, real-world environment with unseen noisy data.
